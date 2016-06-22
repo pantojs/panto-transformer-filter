@@ -1,0 +1,33 @@
+{
+  "name": "panto-transformer-filter",
+  "version": "0.1.0",
+  "description": "Filter transformer for panto",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pantojs/panto-transformer-filter.git"
+  },
+  "keywords": [
+    "panto",
+    "filter",
+    "transformer"
+  ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "author": "yanni4night@gmail.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pantojs/panto-transformer-filter/issues"
+  },
+  "homepage": "https://github.com/pantojs/panto-transformer-filter",
+  "dependencies": {
+    "panto-transformer": "^0.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1"
+  }
+}
