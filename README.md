@@ -6,11 +6,11 @@ Filter transformer for panto.
 ```js
 panto.loadTransformer('filter');
 
-panto.pick('**/*').(panto.filter({
+panto.pick('**/*').pipe(panto.filter({
     pattern: [/.js$/, filename => {
         return filename[0] === 'a';
     }, 'src/**/*']
-})).(panto.read()).end();
+})).pipe(panto.read()).end();
 ```
 
 ## options
