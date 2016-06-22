@@ -3,7 +3,7 @@
 
 Filter transformer for panto.
 
-```
+```js
 panto.loadTransformer('filter');
 
 panto.pick('**/*').(panto.filter({
