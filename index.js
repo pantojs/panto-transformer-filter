@@ -25,7 +25,7 @@ class FilterTransformer extends Transformer {
                 return true;
             } else if (panto.util.isRegExp(pattern) && pattern.test(file.filename)) {
                 return true;
-            } else if (panto.util.isFunction(pattern) && pattern(file.filename)) {
+            } else if (panto.util.isFunction(pattern) && pattern(file)) {
                 return true;
             }
 
@@ -40,7 +40,7 @@ class FilterTransformer extends Transformer {
             matched = match(pattern);
         }
 
-        return Promise.resolve(matched ? file : []);
+        return Promise.resolve(matched ? file : null);
     }
 }
 
