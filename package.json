@@ -26,9 +26,9 @@
   "homepage": "https://github.com/pantojs/panto-transformer-filter",
   "dependencies": {
     "minimatch": "^3.0.2",
-    "panto-transformer": "^0.1.0"
+    "panto-transformer": "^0.1.4"
   },
   "devDependencies": {
-    "panto": "0.0.6"
+    "panto": "0.0.10"
   }
 }
