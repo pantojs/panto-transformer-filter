@@ -6,13 +6,12 @@
  * 2016-06-22[09:49:10]:revised
  *
  * @author yanni4night@gmail.com
- * @version 1.0.0
- * @since 1.0.0
+ * @version 0.1.4
+ * @since 0.1.0
  */
 'use strict';
 
 const Transformer = require('panto-transformer');
-const minimatch = require('minimatch');
 
 class FilterTransformer extends Transformer {
     _transform(file) {
@@ -21,26 +20,22 @@ class FilterTransformer extends Transformer {
         } = this.options;
 
         const match = pattern => {
-            if (panto.util.isString(pattern) && minimatch(file.filename, pattern)) {
+            if ((panto._.isString(pattern) || Array.isArray(pattern)) && panto.file.match(file.filename,
+                    pattern).length) {
                 return true;
-            } else if (panto.util.isRegExp(pattern) && pattern.test(file.filename)) {
+            } else if (panto._.isRegExp(pattern) && pattern.test(file.filename)) {
                 return true;
-            } else if (panto.util.isFunction(pattern) && pattern(file)) {
+            } else if (panto._.isFunction(pattern) && pattern.call(file, file)) {
                 return true;
             }
 
             return false;
         };
 
-        let matched = false;
-
-        if (Array.isArray(pattern)) {
-            matched = pattern.some(match);
-        } else {
-            matched = match(pattern);
-        }
-
-        return Promise.resolve(matched ? file : null);
+        return Promise.resolve(match(pattern) ? file : null);
+    }
+    isCacheable() {
+        return false;
     }
 }
 

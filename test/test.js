@@ -6,8 +6,8 @@
  * 2016-06-24[16:10:03]:revised
  *
  * @author yanni4night@gmail.com
- * @version 1.0.0
- * @since 1.0.0
+ * @version 0.1.4
+ * @since 0.1.0
  */
 'use strict';
 const assert = require('assert');
@@ -27,7 +27,7 @@ describe('panto-transformer-filter', () => {
                 assert.deepEqual(tfile, null);
             }).then(() => {
                 done();
-            });
+            }).catch(e => console.error(e));
         });
         it('should support string pattern', done => {
             const file = {
@@ -76,12 +76,12 @@ describe('panto-transformer-filter', () => {
             };
 
             new FilterTransformer({
-                pattern: [/^m\w+\.js/, 'm*k.js']
+                pattern: ['*.css', 'm*k.js']
             }).transform(file).then(tfile => {
                 assert.deepEqual(tfile, file);
             }).then(() => {
                 done();
-            });
+            }).catch(e => console.error(e));
         });
     });
 });
